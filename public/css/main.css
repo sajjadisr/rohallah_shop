@@ -1,0 +1,233 @@
+
+    @keyframes hideshow {
+      0% { opacity: 1; }
+      10% { opacity: 0.9; }
+      15% { opacity: 0.85; }
+      100% { opacity: 1; }
+    } 
+    
+    @font-face {
+        font-family: farsi;
+        src: url(../font/tanha-font-v0.9/Tanha.ttf),
+        url(../font/tanha-font-v0.9/Tanha.woff),
+        url(../font/tanha-font-v0.9/Tanha.woff2),
+        url(../font/tanha-font-v0.9/Tanha.eot);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: farsi;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #333;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: #191A1E;
+      width: 100%;
+      height: 80px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .svg {
+      width: 60px;
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    .svg svg {
+      width: 100%;
+      height: 100%;
+      animation: hideshow 10s ease infinite;
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+    }
+
+    .logo-text {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 25px;
+    }
+
+    nav ul li a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    nav ul li a:hover {
+      background-color: #4a90e2;
+      color: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      text-align: center;
+      color: white;
+      margin: 30px 0;
+      font-size: 36px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .dad {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      background-color: #f2f2f2;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      perspective: 1000px;
+      box-shadow: 0 0 0 5px #ffffff80;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+    }
+
+    .dad img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .dad:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .son {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: rgba(242, 242, 242, 0.95);
+      transform: rotateX(-90deg);
+      transform-origin: bottom;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .dad:hover .son {
+      transform: rotateX(0deg);
+    }
+
+    .card__title {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .dad:hover img {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    .card__description {
+      margin: 10px 0 0;
+      font-size: 18px;
+      color: #777;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+
+    .price {
+      background: linear-gradient(to right, #4a90e2, #5e60ce);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin-top: 15px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      color: white;
+      padding: 30px 0;
+      margin-top: 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+      }
+      
+      .logo-container {
+        margin-bottom: 15px;
+      }
+      
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      nav ul li {
+        margin: 5px 10px;
+      }
+      
+      .cards-container {
+        gap: 20px;
+      }
+    }
